@@ -214,6 +214,26 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 51,
                 'title' => 'test_answer_access',
             ],
+            [
+                'id'    => 52,
+                'title' => 'review_create',
+            ],
+            [
+                'id'    => 53,
+                'title' => 'review_edit',
+            ],
+            [
+                'id'    => 54,
+                'title' => 'review_show',
+            ],
+            [
+                'id'    => 55,
+                'title' => 'review_delete',
+            ],
+            [
+                'id'    => 56,
+                'title' => 'review_access',
+            ],
         ];
 
         Permission::insert($permissions);
