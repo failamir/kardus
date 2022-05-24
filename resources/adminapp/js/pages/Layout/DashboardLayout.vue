@@ -100,6 +100,12 @@ export default {
           icon: 'table_view',
           path: { name: 'test_answers.index' },
           gate: 'test_answer_access'
+        },
+        {
+          title: 'cruds.review.title',
+          icon: 'table_view',
+          path: { name: 'reviews.index' },
+          gate: 'review_access'
         }
       ]
     }
