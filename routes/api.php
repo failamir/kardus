@@ -40,4 +40,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Test Answers
     Route::resource('test-answers', 'TestAnswersApiController');
+
+    // Reviews
+    Route::resource('reviews', 'ReviewsApiController');
 });

@@ -264,6 +264,30 @@ const routes = [
         name: 'test_answers.edit',
         component: () => import('@cruds/TestAnswers/Edit.vue'),
         meta: { title: 'cruds.testAnswer.title' }
+      },
+      {
+        path: 'reviews',
+        name: 'reviews.index',
+        component: () => import('@cruds/Reviews/Index.vue'),
+        meta: { title: 'cruds.review.title' }
+      },
+      {
+        path: 'reviews/create',
+        name: 'reviews.create',
+        component: () => import('@cruds/Reviews/Create.vue'),
+        meta: { title: 'cruds.review.title' }
+      },
+      {
+        path: 'reviews/:id',
+        name: 'reviews.show',
+        component: () => import('@cruds/Reviews/Show.vue'),
+        meta: { title: 'cruds.review.title' }
+      },
+      {
+        path: 'reviews/:id/edit',
+        name: 'reviews.edit',
+        component: () => import('@cruds/Reviews/Edit.vue'),
+        meta: { title: 'cruds.review.title' }
       }
     ]
   }
