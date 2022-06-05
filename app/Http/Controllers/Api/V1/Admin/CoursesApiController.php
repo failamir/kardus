@@ -7,6 +7,7 @@ use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
 use App\Http\Resources\Admin\CourseResource;
 use App\Models\Course;
+use App\Models\Kela;
 use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class CoursesApiController extends Controller
     {
         abort_if(Gate::denies('course_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new CourseResource(Course::with(['teacher', 'students'])->advancedFilter());
+        return new CourseResource(Course::with(['teacher', 'students', 'kelas'])->advancedFilter());
     }
 
     public function store(StoreCourseRequest $request)
@@ -45,6 +46,7 @@ class CoursesApiController extends Controller
             'meta' => [
                 'teacher'  => User::get(['id', 'name']),
                 'students' => User::get(['id', 'name']),
+                'kelas'    => Kela::get(['id', 'name']),
             ],
         ]);
     }
@@ -53,7 +55,7 @@ class CoursesApiController extends Controller
     {
         abort_if(Gate::denies('course_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new CourseResource($course->load(['teacher', 'students']));
+        return new CourseResource($course->load(['teacher', 'students', 'kelas']));
     }
 
     public function update(UpdateCourseRequest $request, Course $course)
@@ -72,10 +74,11 @@ class CoursesApiController extends Controller
         abort_if(Gate::denies('course_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return response([
-            'data' => new CourseResource($course->load(['teacher', 'students'])),
+            'data' => new CourseResource($course->load(['teacher', 'students', 'kelas'])),
             'meta' => [
                 'teacher'  => User::get(['id', 'name']),
                 'students' => User::get(['id', 'name']),
+                'kelas'    => Kela::get(['id', 'name']),
             ],
         ]);
     }
