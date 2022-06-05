@@ -89,6 +89,15 @@
                           </datatable-list>
                         </td>
                       </tr>
+                      <tr>
+                        <td class="text-primary">
+                          {{ $t('cruds.course.fields.kelas') }}
+                        </td>
+                        <td>
+                          <datatable-single :row="entry" field="kelas.name">
+                          </datatable-single>
+                        </td>
+                      </tr>
                     </tbody>
                   </div>
                 </div>

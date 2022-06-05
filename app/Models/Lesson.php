@@ -43,6 +43,7 @@ class Lesson extends Model implements HasMedia
         'short_text',
         'long_text',
         'position',
+        'topic.name',
     ];
 
     protected $orderable = [
@@ -54,6 +55,7 @@ class Lesson extends Model implements HasMedia
         'position',
         'is_published',
         'is_free',
+        'topic.name',
     ];
 
     protected $fillable = [
@@ -64,6 +66,7 @@ class Lesson extends Model implements HasMedia
         'position',
         'is_published',
         'is_free',
+        'topic_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -112,6 +115,11 @@ class Lesson extends Model implements HasMedia
 
             return $media;
         });
+    }
+
+    public function topic()
+    {
+        return $this->belongsTo(Topic::class);
     }
 
     protected function serializeDate(DateTimeInterface $date)

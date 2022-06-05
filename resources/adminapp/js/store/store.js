@@ -26,6 +26,34 @@ import TestAnswersIndex from './cruds/TestAnswers'
 import TestAnswersSingle from './cruds/TestAnswers/single'
 import ReviewsIndex from './cruds/Reviews'
 import ReviewsSingle from './cruds/Reviews/single'
+import BannersIndex from './cruds/Banners'
+import BannersSingle from './cruds/Banners/single'
+import ProductCategoriesIndex from './cruds/ProductCategories'
+import ProductCategoriesSingle from './cruds/ProductCategories/single'
+import ProductTagsIndex from './cruds/ProductTags'
+import ProductTagsSingle from './cruds/ProductTags/single'
+import ProductsIndex from './cruds/Products'
+import ProductsSingle from './cruds/Products/single'
+import FaqCategoriesIndex from './cruds/FaqCategories'
+import FaqCategoriesSingle from './cruds/FaqCategories/single'
+import FaqQuestionsIndex from './cruds/FaqQuestions'
+import FaqQuestionsSingle from './cruds/FaqQuestions/single'
+import NotificationsIndex from './cruds/Notifications'
+import NotificationsSingle from './cruds/Notifications/single'
+import ChaptersIndex from './cruds/Chapters'
+import ChaptersSingle from './cruds/Chapters/single'
+import TopicsIndex from './cruds/Topics'
+import TopicsSingle from './cruds/Topics/single'
+import KelasIndex from './cruds/Kelas'
+import KelasSingle from './cruds/Kelas/single'
+import LearnProgressesIndex from './cruds/LearnProgresses'
+import LearnProgressesSingle from './cruds/LearnProgresses/single'
+import ListPaymentsIndex from './cruds/ListPayments'
+import ListPaymentsSingle from './cruds/ListPayments/single'
+import SchedulesIndex from './cruds/Schedules'
+import SchedulesSingle from './cruds/Schedules/single'
+import TransactionsIndex from './cruds/Transactions'
+import TransactionsSingle from './cruds/Transactions/single'
 
 Vue.use(Vuex)
 
@@ -56,7 +84,35 @@ export default new Vuex.Store({
     TestAnswersIndex,
     TestAnswersSingle,
     ReviewsIndex,
-    ReviewsSingle
+    ReviewsSingle,
+    BannersIndex,
+    BannersSingle,
+    ProductCategoriesIndex,
+    ProductCategoriesSingle,
+    ProductTagsIndex,
+    ProductTagsSingle,
+    ProductsIndex,
+    ProductsSingle,
+    FaqCategoriesIndex,
+    FaqCategoriesSingle,
+    FaqQuestionsIndex,
+    FaqQuestionsSingle,
+    NotificationsIndex,
+    NotificationsSingle,
+    ChaptersIndex,
+    ChaptersSingle,
+    TopicsIndex,
+    TopicsSingle,
+    KelasIndex,
+    KelasSingle,
+    LearnProgressesIndex,
+    LearnProgressesSingle,
+    ListPaymentsIndex,
+    ListPaymentsSingle,
+    SchedulesIndex,
+    SchedulesSingle,
+    TransactionsIndex,
+    TransactionsSingle
   },
   strict: debug
 })

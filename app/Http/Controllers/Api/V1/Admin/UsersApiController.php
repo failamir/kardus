@@ -11,6 +11,7 @@ use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class UsersApiController extends Controller
 {
@@ -25,6 +26,11 @@ class UsersApiController extends Controller
     {
         $user = User::create($request->validated());
         $user->roles()->sync($request->input('roles.*.id', []));
+        if ($media = $request->input('avatar', [])) {
+            Media::whereIn('id', data_get($media, '*.id'))
+                ->where('model_id', 0)
+                ->update(['model_id' => $user->id]);
+        }
 
         return (new UserResource($user))
             ->response()
@@ -37,7 +43,9 @@ class UsersApiController extends Controller
 
         return response([
             'meta' => [
-                'roles' => Role::get(['id', 'title']),
+                'roles'  => Role::get(['id', 'title']),
+                'gender' => User::GENDER_RADIO,
+                'active' => User::ACTIVE_RADIO,
             ],
         ]);
     }
@@ -53,6 +61,7 @@ class UsersApiController extends Controller
     {
         $user->update($request->validated());
         $user->roles()->sync($request->input('roles.*.id', []));
+        $user->updateMedia($request->input('avatar', []), 'user_avatar');
 
         return (new UserResource($user))
             ->response()
@@ -66,7 +75,9 @@ class UsersApiController extends Controller
         return response([
             'data' => new UserResource($user->load(['roles'])),
             'meta' => [
-                'roles' => Role::get(['id', 'title']),
+                'roles'  => Role::get(['id', 'title']),
+                'gender' => User::GENDER_RADIO,
+                'active' => User::ACTIVE_RADIO,
             ],
         ]);
     }
@@ -78,5 +89,23 @@ class UsersApiController extends Controller
         $user->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function storeMedia(Request $request)
+    {
+        abort_if(Gate::none(['user_create', 'user_edit']), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        if ($request->has('size')) {
+            $this->validate($request, [
+                'file' => 'max:' . $request->input('size') * 1024,
+            ]);
+        }
+
+        $model         = new User();
+        $model->id     = $request->input('model_id', 0);
+        $model->exists = true;
+        $media         = $model->addMediaFromRequest('file')->toMediaCollection($request->input('collection_name'));
+
+        return response()->json($media, Response::HTTP_CREATED);
     }
 }

@@ -6,6 +6,7 @@ use App\Models\User;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
+use Illuminate\Support\Arr;
 
 class UpdateUserRequest extends FormRequest
 {
@@ -35,6 +36,34 @@ class UpdateUserRequest extends FormRequest
             'roles.*.id' => [
                 'integer',
                 'exists:roles,id',
+            ],
+            'city' => [
+                'string',
+                'nullable',
+            ],
+            'phone' => [
+                'string',
+                'nullable',
+            ],
+            'avatar' => [
+                'array',
+                'nullable',
+            ],
+            'avatar.*.id' => [
+                'integer',
+                'exists:media,id',
+            ],
+            'gender' => [
+                'nullable',
+                'in:' . implode(',', Arr::pluck(User::GENDER_RADIO, 'value')),
+            ],
+            'active' => [
+                'nullable',
+                'in:' . implode(',', Arr::pluck(User::ACTIVE_RADIO, 'value')),
+            ],
+            'linked_in' => [
+                'string',
+                'nullable',
             ],
         ];
     }

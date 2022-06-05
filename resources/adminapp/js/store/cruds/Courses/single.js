@@ -9,13 +9,15 @@ function initialState() {
       thumbnail: [],
       is_published: false,
       students: [],
+      kelas_id: null,
       created_at: '',
       updated_at: '',
       deleted_at: ''
     },
     lists: {
       teacher: [],
-      students: []
+      students: [],
+      kelas: []
     },
     loading: false
   }
@@ -117,6 +119,9 @@ const actions = {
   setStudents({ commit }, value) {
     commit('setStudents', value)
   },
+  setKelas({ commit }, value) {
+    commit('setKelas', value)
+  },
   setCreatedAt({ commit }, value) {
     commit('setCreatedAt', value)
   },
@@ -176,6 +181,9 @@ const mutations = {
   },
   setStudents(state, value) {
     state.entry.students = value
+  },
+  setKelas(state, value) {
+    state.entry.kelas_id = value
   },
   setCreatedAt(state, value) {
     state.entry.created_at = value

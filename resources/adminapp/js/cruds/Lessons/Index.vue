@@ -150,6 +150,13 @@ export default {
           sortable: true
         },
         {
+          title: 'cruds.lesson.fields.topic',
+          field: 'topic.name',
+          thComp: TranslatedHeader,
+          tdComp: DatatableSingle,
+          sortable: true
+        },
+        {
           title: 'global.actions',
           thComp: TranslatedHeader,
           tdComp: DatatableActions,

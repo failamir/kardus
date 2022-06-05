@@ -106,6 +106,15 @@
                           </datatable-checkbox>
                         </td>
                       </tr>
+                      <tr>
+                        <td class="text-primary">
+                          {{ $t('cruds.lesson.fields.topic') }}
+                        </td>
+                        <td>
+                          <datatable-single :row="entry" field="topic.name">
+                          </datatable-single>
+                        </td>
+                      </tr>
                     </tbody>
                   </div>
                 </div>
