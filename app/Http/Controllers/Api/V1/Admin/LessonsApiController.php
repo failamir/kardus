@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateLessonRequest;
 use App\Http\Resources\Admin\LessonResource;
 use App\Models\Course;
 use App\Models\Lesson;
+use App\Models\Topic;
 use Gate;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -19,7 +20,7 @@ class LessonsApiController extends Controller
     {
         abort_if(Gate::denies('lesson_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new LessonResource(Lesson::with(['course'])->advancedFilter());
+        return new LessonResource(Lesson::with(['course', 'topic'])->advancedFilter());
     }
 
     public function store(StoreLessonRequest $request)
@@ -50,6 +51,7 @@ class LessonsApiController extends Controller
         return response([
             'meta' => [
                 'course' => Course::get(['id', 'title']),
+                'topic'  => Topic::get(['id', 'name']),
             ],
         ]);
     }
@@ -58,7 +60,7 @@ class LessonsApiController extends Controller
     {
         abort_if(Gate::denies('lesson_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new LessonResource($lesson->load(['course']));
+        return new LessonResource($lesson->load(['course', 'topic']));
     }
 
     public function update(UpdateLessonRequest $request, Lesson $lesson)
@@ -78,9 +80,10 @@ class LessonsApiController extends Controller
         abort_if(Gate::denies('lesson_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return response([
-            'data' => new LessonResource($lesson->load(['course'])),
+            'data' => new LessonResource($lesson->load(['course', 'topic'])),
             'meta' => [
                 'course' => Course::get(['id', 'title']),
+                'topic'  => Topic::get(['id', 'name']),
             ],
         ]);
     }

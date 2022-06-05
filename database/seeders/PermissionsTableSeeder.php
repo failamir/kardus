@@ -234,6 +234,302 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 56,
                 'title' => 'review_access',
             ],
+            [
+                'id'    => 57,
+                'title' => 'banner_create',
+            ],
+            [
+                'id'    => 58,
+                'title' => 'banner_edit',
+            ],
+            [
+                'id'    => 59,
+                'title' => 'banner_show',
+            ],
+            [
+                'id'    => 60,
+                'title' => 'banner_delete',
+            ],
+            [
+                'id'    => 61,
+                'title' => 'banner_access',
+            ],
+            [
+                'id'    => 62,
+                'title' => 'product_management_access',
+            ],
+            [
+                'id'    => 63,
+                'title' => 'product_category_create',
+            ],
+            [
+                'id'    => 64,
+                'title' => 'product_category_edit',
+            ],
+            [
+                'id'    => 65,
+                'title' => 'product_category_show',
+            ],
+            [
+                'id'    => 66,
+                'title' => 'product_category_delete',
+            ],
+            [
+                'id'    => 67,
+                'title' => 'product_category_access',
+            ],
+            [
+                'id'    => 68,
+                'title' => 'product_tag_create',
+            ],
+            [
+                'id'    => 69,
+                'title' => 'product_tag_edit',
+            ],
+            [
+                'id'    => 70,
+                'title' => 'product_tag_show',
+            ],
+            [
+                'id'    => 71,
+                'title' => 'product_tag_delete',
+            ],
+            [
+                'id'    => 72,
+                'title' => 'product_tag_access',
+            ],
+            [
+                'id'    => 73,
+                'title' => 'product_create',
+            ],
+            [
+                'id'    => 74,
+                'title' => 'product_edit',
+            ],
+            [
+                'id'    => 75,
+                'title' => 'product_show',
+            ],
+            [
+                'id'    => 76,
+                'title' => 'product_delete',
+            ],
+            [
+                'id'    => 77,
+                'title' => 'product_access',
+            ],
+            [
+                'id'    => 78,
+                'title' => 'faq_management_access',
+            ],
+            [
+                'id'    => 79,
+                'title' => 'faq_category_create',
+            ],
+            [
+                'id'    => 80,
+                'title' => 'faq_category_edit',
+            ],
+            [
+                'id'    => 81,
+                'title' => 'faq_category_show',
+            ],
+            [
+                'id'    => 82,
+                'title' => 'faq_category_delete',
+            ],
+            [
+                'id'    => 83,
+                'title' => 'faq_category_access',
+            ],
+            [
+                'id'    => 84,
+                'title' => 'faq_question_create',
+            ],
+            [
+                'id'    => 85,
+                'title' => 'faq_question_edit',
+            ],
+            [
+                'id'    => 86,
+                'title' => 'faq_question_show',
+            ],
+            [
+                'id'    => 87,
+                'title' => 'faq_question_delete',
+            ],
+            [
+                'id'    => 88,
+                'title' => 'faq_question_access',
+            ],
+            [
+                'id'    => 89,
+                'title' => 'notification_create',
+            ],
+            [
+                'id'    => 90,
+                'title' => 'notification_edit',
+            ],
+            [
+                'id'    => 91,
+                'title' => 'notification_show',
+            ],
+            [
+                'id'    => 92,
+                'title' => 'notification_delete',
+            ],
+            [
+                'id'    => 93,
+                'title' => 'notification_access',
+            ],
+            [
+                'id'    => 94,
+                'title' => 'chapter_create',
+            ],
+            [
+                'id'    => 95,
+                'title' => 'chapter_edit',
+            ],
+            [
+                'id'    => 96,
+                'title' => 'chapter_show',
+            ],
+            [
+                'id'    => 97,
+                'title' => 'chapter_delete',
+            ],
+            [
+                'id'    => 98,
+                'title' => 'chapter_access',
+            ],
+            [
+                'id'    => 99,
+                'title' => 'topic_create',
+            ],
+            [
+                'id'    => 100,
+                'title' => 'topic_edit',
+            ],
+            [
+                'id'    => 101,
+                'title' => 'topic_show',
+            ],
+            [
+                'id'    => 102,
+                'title' => 'topic_delete',
+            ],
+            [
+                'id'    => 103,
+                'title' => 'topic_access',
+            ],
+            [
+                'id'    => 104,
+                'title' => 'kela_create',
+            ],
+            [
+                'id'    => 105,
+                'title' => 'kela_edit',
+            ],
+            [
+                'id'    => 106,
+                'title' => 'kela_show',
+            ],
+            [
+                'id'    => 107,
+                'title' => 'kela_delete',
+            ],
+            [
+                'id'    => 108,
+                'title' => 'kela_access',
+            ],
+            [
+                'id'    => 109,
+                'title' => 'management_test_access',
+            ],
+            [
+                'id'    => 110,
+                'title' => 'management_kela_access',
+            ],
+            [
+                'id'    => 111,
+                'title' => 'learn_progress_create',
+            ],
+            [
+                'id'    => 112,
+                'title' => 'learn_progress_edit',
+            ],
+            [
+                'id'    => 113,
+                'title' => 'learn_progress_show',
+            ],
+            [
+                'id'    => 114,
+                'title' => 'learn_progress_delete',
+            ],
+            [
+                'id'    => 115,
+                'title' => 'learn_progress_access',
+            ],
+            [
+                'id'    => 116,
+                'title' => 'list_payment_create',
+            ],
+            [
+                'id'    => 117,
+                'title' => 'list_payment_edit',
+            ],
+            [
+                'id'    => 118,
+                'title' => 'list_payment_show',
+            ],
+            [
+                'id'    => 119,
+                'title' => 'list_payment_delete',
+            ],
+            [
+                'id'    => 120,
+                'title' => 'list_payment_access',
+            ],
+            [
+                'id'    => 121,
+                'title' => 'schedule_create',
+            ],
+            [
+                'id'    => 122,
+                'title' => 'schedule_edit',
+            ],
+            [
+                'id'    => 123,
+                'title' => 'schedule_show',
+            ],
+            [
+                'id'    => 124,
+                'title' => 'schedule_delete',
+            ],
+            [
+                'id'    => 125,
+                'title' => 'schedule_access',
+            ],
+            [
+                'id'    => 126,
+                'title' => 'transaction_create',
+            ],
+            [
+                'id'    => 127,
+                'title' => 'transaction_edit',
+            ],
+            [
+                'id'    => 128,
+                'title' => 'transaction_show',
+            ],
+            [
+                'id'    => 129,
+                'title' => 'transaction_delete',
+            ],
+            [
+                'id'    => 130,
+                'title' => 'transaction_access',
+            ],
         ];
 
         Permission::insert($permissions);

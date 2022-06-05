@@ -62,6 +62,11 @@ class StoreLessonRequest extends FormRequest
             'is_free' => [
                 'boolean',
             ],
+            'topic_id' => [
+                'integer',
+                'exists:topics,id',
+                'nullable',
+            ],
         ];
     }
 }

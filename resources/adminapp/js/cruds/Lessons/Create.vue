@@ -171,6 +171,28 @@
                       >{{ $t('cruds.lesson.fields.is_free') }}</label
                     >
                   </div>
+                  <div
+                    class="form-group bmd-form-group"
+                    :class="{
+                      'has-items': entry.topic_id !== null,
+                      'is-focused': activeField == 'topic'
+                    }"
+                  >
+                    <label class="bmd-label-floating">{{
+                      $t('cruds.lesson.fields.topic')
+                    }}</label>
+                    <v-select
+                      name="topic"
+                      label="name"
+                      :key="'topic-field'"
+                      :value="entry.topic_id"
+                      :options="lists.topic"
+                      :reduce="entry => entry.id"
+                      @input="updateTopic"
+                      @search.focus="focusField('topic')"
+                      @search.blur="clearFocus"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -229,6 +251,7 @@ export default {
       'setPosition',
       'setIsPublished',
       'setIsFree',
+      'setTopic',
       'fetchCreateData'
     ]),
     updateCourse(value) {
@@ -251,6 +274,9 @@ export default {
     },
     updateIsFree(e) {
       this.setIsFree(e.target.checked)
+    },
+    updateTopic(value) {
+      this.setTopic(value)
     },
     getRoute(name) {
       return `${axios.defaults.baseURL}${name}/media`

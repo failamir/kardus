@@ -41,6 +41,7 @@ class Course extends Model implements HasMedia
         'description',
         'price',
         'is_published',
+        'kelas.name',
     ];
 
     protected $filterable = [
@@ -50,6 +51,7 @@ class Course extends Model implements HasMedia
         'description',
         'price',
         'students.name',
+        'kelas.name',
     ];
 
     protected $fillable = [
@@ -58,6 +60,7 @@ class Course extends Model implements HasMedia
         'description',
         'price',
         'is_published',
+        'kelas_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -101,6 +104,11 @@ class Course extends Model implements HasMedia
     public function students()
     {
         return $this->belongsToMany(User::class);
+    }
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kela::class);
     }
 
     protected function serializeDate(DateTimeInterface $date)

@@ -137,6 +137,13 @@ export default {
           tdComp: DatatableList
         },
         {
+          title: 'cruds.course.fields.kelas',
+          field: 'kelas.name',
+          thComp: TranslatedHeader,
+          tdComp: DatatableSingle,
+          sortable: true
+        },
+        {
           title: 'global.actions',
           thComp: TranslatedHeader,
           tdComp: DatatableActions,

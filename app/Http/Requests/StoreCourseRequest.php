@@ -52,6 +52,11 @@ class StoreCourseRequest extends FormRequest
                 'integer',
                 'exists:users,id',
             ],
+            'kelas_id' => [
+                'integer',
+                'exists:kelas,id',
+                'nullable',
+            ],
         ];
     }
 }

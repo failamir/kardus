@@ -152,6 +152,28 @@
                       @search.blur="clearFocus"
                     />
                   </div>
+                  <div
+                    class="form-group bmd-form-group"
+                    :class="{
+                      'has-items': entry.kelas_id !== null,
+                      'is-focused': activeField == 'kelas'
+                    }"
+                  >
+                    <label class="bmd-label-floating">{{
+                      $t('cruds.course.fields.kelas')
+                    }}</label>
+                    <v-select
+                      name="kelas"
+                      label="name"
+                      :key="'kelas-field'"
+                      :value="entry.kelas_id"
+                      :options="lists.kelas"
+                      :reduce="entry => entry.id"
+                      @input="updateKelas"
+                      @search.focus="focusField('kelas')"
+                      @search.blur="clearFocus"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -213,7 +235,8 @@ export default {
       'insertThumbnailFile',
       'removeThumbnailFile',
       'setIsPublished',
-      'setStudents'
+      'setStudents',
+      'setKelas'
     ]),
     updateTeacher(value) {
       this.setTeacher(value)
@@ -232,6 +255,9 @@ export default {
     },
     updateStudents(value) {
       this.setStudents(value)
+    },
+    updateKelas(value) {
+      this.setKelas(value)
     },
     getRoute(name) {
       return `${axios.defaults.baseURL}${name}/media`

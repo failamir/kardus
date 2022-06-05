@@ -73,6 +73,8 @@ import TranslatedHeader from '@components/Datatables/TranslatedHeader'
 import HeaderSettings from '@components/Datatables/HeaderSettings'
 import GlobalSearch from '@components/Datatables/GlobalSearch'
 import DatatableList from '@components/Datatables/DatatableList'
+import DatatablePictures from '@components/Datatables/DatatablePictures'
+import DatatableEnum from '@components/Datatables/DatatableEnum'
 
 export default {
   components: {
@@ -112,6 +114,44 @@ export default {
           field: 'roles.title',
           thComp: TranslatedHeader,
           tdComp: DatatableList
+        },
+        {
+          title: 'cruds.user.fields.city',
+          field: 'city',
+          thComp: TranslatedHeader,
+          sortable: true
+        },
+        {
+          title: 'cruds.user.fields.phone',
+          field: 'phone',
+          thComp: TranslatedHeader,
+          sortable: true
+        },
+        {
+          title: 'cruds.user.fields.avatar',
+          field: 'avatar',
+          thComp: TranslatedHeader,
+          tdComp: DatatablePictures
+        },
+        {
+          title: 'cruds.user.fields.gender',
+          field: 'gender',
+          thComp: TranslatedHeader,
+          sortable: true,
+          tdComp: DatatableEnum
+        },
+        {
+          title: 'cruds.user.fields.active',
+          field: 'active',
+          thComp: TranslatedHeader,
+          sortable: true,
+          tdComp: DatatableEnum
+        },
+        {
+          title: 'cruds.user.fields.linked_in',
+          field: 'linked_in',
+          thComp: TranslatedHeader,
+          sortable: true
         },
         {
           title: 'global.actions',

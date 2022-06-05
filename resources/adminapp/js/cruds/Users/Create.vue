@@ -102,6 +102,95 @@
                       @search.blur="clearFocus"
                     />
                   </div>
+                  <div
+                    class="form-group bmd-form-group"
+                    :class="{
+                      'has-items': entry.city,
+                      'is-focused': activeField == 'city'
+                    }"
+                  >
+                    <label class="bmd-label-floating">{{
+                      $t('cruds.user.fields.city')
+                    }}</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      :value="entry.city"
+                      @input="updateCity"
+                      @focus="focusField('city')"
+                      @blur="clearFocus"
+                    />
+                  </div>
+                  <div
+                    class="form-group bmd-form-group"
+                    :class="{
+                      'has-items': entry.phone,
+                      'is-focused': activeField == 'phone'
+                    }"
+                  >
+                    <label class="bmd-label-floating">{{
+                      $t('cruds.user.fields.phone')
+                    }}</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      :value="entry.phone"
+                      @input="updatePhone"
+                      @focus="focusField('phone')"
+                      @blur="clearFocus"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>{{ $t('cruds.user.fields.avatar') }}</label>
+                    <attachment
+                      :route="getRoute('users')"
+                      :collection-name="'user_avatar'"
+                      :media="entry.avatar"
+                      :max-file-size="8"
+                      :component="'pictures'"
+                      :accept="'image/*'"
+                      @file-uploaded="insertAvatarFile"
+                      @file-removed="removeAvatarFile"
+                      :max-files="1"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>{{ $t('cruds.user.fields.gender') }}</label>
+                    <v-radio
+                      :value="entry.gender"
+                      :options="lists.gender"
+                      @change="updateGender"
+                    >
+                    </v-radio>
+                  </div>
+                  <div class="form-group">
+                    <label>{{ $t('cruds.user.fields.active') }}</label>
+                    <v-radio
+                      :value="entry.active"
+                      :options="lists.active"
+                      @change="updateActive"
+                    >
+                    </v-radio>
+                  </div>
+                  <div
+                    class="form-group bmd-form-group"
+                    :class="{
+                      'has-items': entry.linked_in,
+                      'is-focused': activeField == 'linked_in'
+                    }"
+                  >
+                    <label class="bmd-label-floating">{{
+                      $t('cruds.user.fields.linked_in')
+                    }}</label>
+                    <input
+                      class="form-control"
+                      type="text"
+                      :value="entry.linked_in"
+                      @input="updateLinkedIn"
+                      @focus="focusField('linked_in')"
+                      @blur="clearFocus"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -124,8 +213,12 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import Attachment from '@components/Attachments/Attachment'
 
 export default {
+  components: {
+    Attachment
+  },
   data() {
     return {
       status: '',
@@ -149,6 +242,13 @@ export default {
       'setEmail',
       'setPassword',
       'setRoles',
+      'setCity',
+      'setPhone',
+      'insertAvatarFile',
+      'removeAvatarFile',
+      'setGender',
+      'setActive',
+      'setLinkedIn',
       'fetchCreateData'
     ]),
     updateName(e) {
@@ -162,6 +262,24 @@ export default {
     },
     updateRoles(value) {
       this.setRoles(value)
+    },
+    updateCity(e) {
+      this.setCity(e.target.value)
+    },
+    updatePhone(e) {
+      this.setPhone(e.target.value)
+    },
+    updateGender(value) {
+      this.setGender(value)
+    },
+    updateActive(value) {
+      this.setActive(value)
+    },
+    updateLinkedIn(e) {
+      this.setLinkedIn(e.target.value)
+    },
+    getRoute(name) {
+      return `${axios.defaults.baseURL}${name}/media`
     },
     submitForm() {
       this.storeData()

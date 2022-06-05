@@ -62,6 +62,57 @@
                           </datatable-list>
                         </td>
                       </tr>
+                      <tr>
+                        <td class="text-primary">
+                          {{ $t('cruds.user.fields.city') }}
+                        </td>
+                        <td>
+                          {{ entry.city }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-primary">
+                          {{ $t('cruds.user.fields.phone') }}
+                        </td>
+                        <td>
+                          {{ entry.phone }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-primary">
+                          {{ $t('cruds.user.fields.avatar') }}
+                        </td>
+                        <td>
+                          <datatable-pictures :row="entry" :field="'avatar'">
+                          </datatable-pictures>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-primary">
+                          {{ $t('cruds.user.fields.gender') }}
+                        </td>
+                        <td>
+                          <datatable-enum :row="entry" field="gender">
+                          </datatable-enum>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-primary">
+                          {{ $t('cruds.user.fields.active') }}
+                        </td>
+                        <td>
+                          <datatable-enum :row="entry" field="active">
+                          </datatable-enum>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-primary">
+                          {{ $t('cruds.user.fields.linked_in') }}
+                        </td>
+                        <td>
+                          {{ entry.linked_in }}
+                        </td>
+                      </tr>
                     </tbody>
                   </div>
                 </div>
@@ -77,10 +128,14 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import DatatableList from '@components/Datatables/DatatableList'
+import DatatablePictures from '@components/Datatables/DatatablePictures'
+import DatatableEnum from '@components/Datatables/DatatableEnum'
 
 export default {
   components: {
-    DatatableList
+    DatatableList,
+    DatatablePictures,
+    DatatableEnum
   },
   data() {
     return {}

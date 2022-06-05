@@ -8,12 +8,20 @@ function initialState() {
       password: null,
       roles: [],
       remember_token: '',
+      city: '',
+      phone: '',
+      avatar: [],
+      gender: null,
+      active: null,
+      linked_in: '',
       created_at: '',
       updated_at: '',
       deleted_at: ''
     },
     lists: {
-      roles: []
+      roles: [],
+      gender: [],
+      active: []
     },
     loading: false
   }
@@ -109,6 +117,27 @@ const actions = {
   setRememberToken({ commit }, value) {
     commit('setRememberToken', value)
   },
+  setCity({ commit }, value) {
+    commit('setCity', value)
+  },
+  setPhone({ commit }, value) {
+    commit('setPhone', value)
+  },
+  insertAvatarFile({ commit }, file) {
+    commit('insertAvatarFile', file)
+  },
+  removeAvatarFile({ commit }, file) {
+    commit('removeAvatarFile', file)
+  },
+  setGender({ commit }, value) {
+    commit('setGender', value)
+  },
+  setActive({ commit }, value) {
+    commit('setActive', value)
+  },
+  setLinkedIn({ commit }, value) {
+    commit('setLinkedIn', value)
+  },
   setCreatedAt({ commit }, value) {
     commit('setCreatedAt', value)
   },
@@ -160,6 +189,29 @@ const mutations = {
   },
   setRememberToken(state, value) {
     state.entry.remember_token = value
+  },
+  setCity(state, value) {
+    state.entry.city = value
+  },
+  setPhone(state, value) {
+    state.entry.phone = value
+  },
+  insertAvatarFile(state, file) {
+    state.entry.avatar.push(file)
+  },
+  removeAvatarFile(state, file) {
+    state.entry.avatar = state.entry.avatar.filter(item => {
+      return item.id !== file.id
+    })
+  },
+  setGender(state, value) {
+    state.entry.gender = value
+  },
+  setActive(state, value) {
+    state.entry.active = value
+  },
+  setLinkedIn(state, value) {
+    state.entry.linked_in = value
   },
   setCreatedAt(state, value) {
     state.entry.created_at = value

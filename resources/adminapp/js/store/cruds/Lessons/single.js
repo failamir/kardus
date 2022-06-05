@@ -11,12 +11,14 @@ function initialState() {
       position: '',
       is_published: false,
       is_free: false,
+      topic_id: null,
       created_at: '',
       updated_at: '',
       deleted_at: ''
     },
     lists: {
-      course: []
+      course: [],
+      topic: []
     },
     loading: false
   }
@@ -127,6 +129,9 @@ const actions = {
   setIsFree({ commit }, value) {
     commit('setIsFree', value)
   },
+  setTopic({ commit }, value) {
+    commit('setTopic', value)
+  },
   setCreatedAt({ commit }, value) {
     commit('setCreatedAt', value)
   },
@@ -197,6 +202,9 @@ const mutations = {
   },
   setIsFree(state, value) {
     state.entry.is_free = value
+  },
+  setTopic(state, value) {
+    state.entry.topic_id = value
   },
   setCreatedAt(state, value) {
     state.entry.created_at = value
